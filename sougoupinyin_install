@@ -1,0 +1,43 @@
+# install sougoupinyin on my ubuntu16.04lts
+
+# first try
+sudo dpkg -i sogoupinyin_2.2.0.0108_amd64.deb 
+
+# miss some package
+sudo apt-get install libopencc2
+sudo apt-get install fcitx-libs
+# unable to install these package
+
+# try ppa
+sudo add-apt-repository ppa:fcitx-team/nightly
+sudo apt-get update
+# sources.list confliction, so use orig source
+sudo mv sources.list sources.list.aliyun
+sudo mv sources.list.bk sources.list
+sudo apt-get update
+
+# unable update fcitx source
+cd /etc/apt/sources.list.d
+mv fcitx-team-ubuntu-nightly-xenial.list fcitx-team-ubuntu-nightly-xenial.list.bk
+sudo mv fcitx-team-ubuntu-nightly-xenial.list fcitx-team-ubuntu-nightly-xenial.list.bk
+
+# now, it's ok
+sudo apt-get update
+sudo apt-get install fcitx
+
+# try again
+cd ~/installer
+sudo dpkg -i sogoupinyin_2.2.0.0108_amd64.deb 
+apt-get -f install libopencc1:amd64
+sudo apt-get -f install libopencc1:amd64
+sudo apt-get -f install libopencc2
+sudo apt-get -f install fcitx-libs
+# still failed to install sougoupinyin
+
+# need install some packages first
+sudo apt remove sogoupinyin
+sudo apt install libopencc1 fcitx-libs fcitx-libs-qt fonts-droid-fallback
+sudo dpkg -i sogoupinyin_2.2.0.0108_amd64.deb
+
+# install success, reboot, you can use sougoupinyin now~
+

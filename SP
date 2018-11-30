@@ -1,0 +1,1 @@
+echo $SHOME`python3 ~/bin/getRelativePath.py`

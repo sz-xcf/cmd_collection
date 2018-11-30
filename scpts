@@ -1,0 +1,3 @@
+#!/bin/bash
+targetPath=$SHOME`python3 ~/bin/getRelativePath.py`
+scp -r $1 $targetPath

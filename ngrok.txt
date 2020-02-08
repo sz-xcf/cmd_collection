@@ -1,0 +1,2 @@
+./ngrok authtoken 1XSYq8gmxzNgMlYQzERmC50uBot_6qURZnj43KsYF2GWaUamm
+ngrok tcp 22 --region=ap

@@ -1,0 +1,6 @@
+
+a、休眠7200s 
+sudo rtcwake -m disk -s 7200
+
+b、电脑进入睡眠，并在09:00这个时刻唤醒
+sudo rtcwake -m mem -l -t `date -d 09:00  +%s` 
